@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FatzzStore Feedback</title>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<style>
+
+body{
+font-family: Arial;
+background: linear-gradient(135deg,#3a0ca3,#4361ee,#4cc9f0);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+margin:0;
+}
+
+.container{
+background:#1f2937;
+padding:30px;
+border-radius:15px;
+width:350px;
+color:white;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+h2{
+text-align:center;
+margin-bottom:20px;
+}
+
+textarea{
+width:100%;
+height:120px;
+padding:10px;
+border-radius:8px;
+border:none;
+margin-top:10px;
+}
+
+input[type=file]{
+margin-top:10px;
+color:white;
+}
+
+button{
+width:100%;
+margin-top:20px;
+padding:12px;
+border:none;
+border-radius:10px;
+background:linear-gradient(90deg,#7b2ff7,#00c6ff);
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+opacity:0.9;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>FatzzStore</h2>
+<p>Kirim pesan atau foto tanpa login</p>
+
+<textarea id="message" placeholder="Tulis pesan kamu..."></textarea>
+
+<input type="file" id="file">
+
+<button onclick="sendEmail()">Kirim Feedback</button>
+
+</div>
+
+<script>
+
+(function(){
+emailjs.init("afSPNKRU34TPGiBzb");
+})();
+
+function sendEmail(){
+
+var message=document.getElementById("message").value;
+
+var templateParams={
+message:message
+};
+
+emailjs.send("service_42zkw5q","template_2t1eni9",templateParams)
+.then(function(response){
+alert("Pesan berhasil dikirim!");
+},function(error){
+alert("Gagal mengirim!");
+});
+
+}
+
+</script>
+
+</body>
+</html>
