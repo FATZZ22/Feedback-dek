@@ -107,4 +107,20 @@ alert("Gagal mengirim!");
 </script>
 
 </body>
+</html>var templateParams={
+message:message
+};
+
+emailjs.send("service_42zkw5q","template_2t1eni9",templateParams)
+.then(function(response){
+alert("Pesan berhasil dikirim!");
+},function(error){
+alert("Gagal mengirim!");
+});
+
+}
+
+</script>
+
+</body>
 </html>
